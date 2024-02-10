@@ -21,6 +21,8 @@ const Products = () => {
     return <p>Error loading products</p>;
   }
 
+  console.log(data);
+
   return (
     <>
       <SearchInput onSearch={handleSearch} />
@@ -33,6 +35,16 @@ const Products = () => {
             ))}
           </CardContent>
         </Card>
+        {data?.destinations.multiMarket.map((item:MultiMarketItem) => {
+          return (
+            <Card>
+              <CardImage src={item.images[0].desktop} alt={data?.name} />
+              <CardContent>
+                <Item key={item.id} {...item} />
+              </CardContent>
+            </Card>
+            )}
+        )}
       </Container>
     </>
   );

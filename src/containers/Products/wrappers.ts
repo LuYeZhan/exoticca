@@ -17,10 +17,10 @@ export const CardImage = styled.img`
   width: 50%;
   float: left;
   object-fit: cover;
+  height: 100%;
 `;
 
 export const CardContent = styled.div`
-  padding: 20px;
 `;
 
 export const Title = styled.h2`

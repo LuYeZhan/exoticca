@@ -3,8 +3,6 @@ import Tags from "../Tags";
 import { SpanWrapper } from "./wrappers";
 
 const TravellerInfo = ({ hasSoloTraveller, hasPrivateTour, tags }: { hasSoloTraveller: boolean; hasPrivateTour: boolean; tags: Tag[] }) => {
-  console.log(hasSoloTraveller) 
-  console.log(hasPrivateTour)
   return (
     <div>
       {!hasPrivateTour ? <SpanWrapper background={true}>Group Tours</SpanWrapper> : null}
