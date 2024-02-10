@@ -78,6 +78,15 @@ export type SimilarItem = {
   discountSaved: string;
 };
 
+export type Tag = {
+  alias: string;
+  name: string;
+  description: string;
+  categoryName: string;
+  uri: string;
+  tagId: string;
+};
+
 export type MultiMarketItem = {
   id: number;
   title: string;
@@ -107,14 +116,7 @@ export type MultiMarketItem = {
     pricePerNight: string;
     oldPrice: number;
   };
-  tags: {
-    alias: string;
-    name: string;
-    description: string;
-    categoryName: string;
-    uri: string;
-    tagId: string;
-  }[];
+  tags: Tag[],
   crafterDetail: {
     crafterSentence: string;
     crafterName: string;

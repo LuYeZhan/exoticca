@@ -6,7 +6,6 @@ export const Container = styled.div`
 `;
 
 export const Card = styled.div`
-  width: calc(50% - 20px); /* Adjust as needed */
   margin: 10px;
   background-color: #f9f9f9;
   border-radius: 5px;
