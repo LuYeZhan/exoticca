@@ -47,12 +47,12 @@ describe('TravellerInfo component', () => {
 
   it('renders group tours when hasPrivateTour is false', () => {
     render(<TravellerInfo hasSoloTraveller={false} hasPrivateTour={false} tags={tags} />);
-    expect(screen.getByText('Group Tours')).toBeInTheDocument();
+    expect(screen.getByText('GROUP TOURS')).toBeInTheDocument();
   });
 
   it('renders solo travellers when hasSoloTraveller is true', () => {
     render(<TravellerInfo hasSoloTraveller={true} hasPrivateTour={false} tags={tags} />);
-    expect(screen.getByText('Solo travellers')).toBeInTheDocument();
+    expect(screen.getByText('SOLO TRAVELLER')).toBeInTheDocument();
   });
 
   it('renders tags using SpanWrapper', () => {
