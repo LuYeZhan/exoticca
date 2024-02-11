@@ -27,6 +27,7 @@ const Products = () => {
     <>
       <SearchInput onSearch={handleSearch} />
       <Container>
+        <h2>Our recommendation to visit {data?.name} and neighboring countries</h2>
         <Card>
           <CardImage src={data?.hero.images.desktop} alt={data?.name} />
           <CardContent>
@@ -35,6 +36,7 @@ const Products = () => {
             ))}
           </CardContent>
         </Card>
+        <h2>Multi country vacation packages including {data?.name}</h2>
         {data?.destinations.multiMarket.map((item:MultiMarketItem) => {
           return (
             <Card>

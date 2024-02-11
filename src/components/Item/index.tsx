@@ -2,13 +2,13 @@ import { MultiMarketItem } from "../../types/product.types";
 import Highlights from "../Highlights";
 import TravelServices from "../TravelServices";
 import TravellerInfo from "../TravellersInfo";
-import { ContentWrapper, ItemWrapper } from "./wrappers";
+import { ContentWrapper, InfoWrapper, ItemWrapper, PriceWrapper } from "./wrappers";
 
 const Item = (item: MultiMarketItem) => {
 
   return (
     <ItemWrapper>
-      <div>
+      <InfoWrapper>
         <p>{item.destination} in {item.days} days</p>
         <h4>{item.title}</h4>
         <ContentWrapper>
@@ -20,14 +20,14 @@ const Item = (item: MultiMarketItem) => {
         hasPrivateTour={item.hasPrivateTour}
         tags={item.tags}
         />
-      </div>
-      <div>
-        <p>{item.priceDetail.pricingPercentage}</p>
+      </InfoWrapper>
+      <PriceWrapper>
+        <span>-{item.priceDetail.pricingPercentage} %</span>
         <p>{item.priceDetail.oldPriceBeautify}</p>
         <p>{item.priceDetail.fromPriceBeautify}</p>
         <p>Per night: {item.priceDetail.pricePerNight}</p>
         <button>See trip</button>
-      </div>
+      </PriceWrapper>
     </ItemWrapper>
   );
 };

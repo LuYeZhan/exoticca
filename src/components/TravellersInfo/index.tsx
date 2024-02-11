@@ -1,19 +1,19 @@
 import { Tag } from "../../types/product.types";
 import Tags from "../Tags";
-import { SpanWrapper } from "./wrappers";
+import { InfoWrapper, SpanWrapper } from "./wrappers";
 
 const TravellerInfo = ({ hasSoloTraveller, hasPrivateTour, tags }: { hasSoloTraveller: boolean; hasPrivateTour: boolean; tags: Tag[] }) => {
   return (
-    <div>
+    <InfoWrapper>
       {!hasPrivateTour ? <SpanWrapper background={true}>Group Tours</SpanWrapper> : null}
       {hasSoloTraveller ? (
         <>
-          <i>icon</i>
-          <SpanWrapper background={true}>Solo travellers</SpanWrapper>
+          
+          <SpanWrapper background={true}><i>icon</i> Solo travellers</SpanWrapper>
         </>
       ) : null}
       <Tags tags={tags} wrapperComponent={SpanWrapper}/> 
-    </div>
+    </InfoWrapper>
   );
 };
 

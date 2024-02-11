@@ -16,3 +16,9 @@ export const SpanWrapper = styled.span<SpanWrapperProps>`
       border: 1px solid lightgrey;
     `}
 `;
+
+export const InfoWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+`
