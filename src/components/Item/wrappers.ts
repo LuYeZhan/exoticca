@@ -2,18 +2,15 @@ import styled from "styled-components";
 
 export const ItemWrapper = styled.div`
   display: flex;
+  padding: 0.5em 0;
 `
 
 export const ContentWrapper = styled.div`
-  display: flex;
   padding: 1em 0;
-`
-
-export const PriceWrapper = styled.div`
-  display: flex; 
-  flex-direction: column;
+  display: flex;
 `
 
 export const InfoWrapper = styled.div`
-  padding: 0em 4em 0em 1em;
+  padding-left: 1em;
+  max-width: 75%;
 `

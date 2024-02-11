@@ -1,18 +1,20 @@
-import { Tag } from "../../types/product.types";
-import Tags from "../Tags";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { InfoWrapper, SpanWrapper } from "./wrappers";
+import Tags from "../Tags";
+import { Tag } from "../../types/product.types";
 
 const TravellerInfo = ({ hasSoloTraveller, hasPrivateTour, tags }: { hasSoloTraveller: boolean; hasPrivateTour: boolean; tags: Tag[] }) => {
+  console.log(tags)
   return (
     <InfoWrapper>
       {!hasPrivateTour ? <SpanWrapper background={true}>Group Tours</SpanWrapper> : null}
       {hasSoloTraveller ? (
         <>
-          
-          <SpanWrapper background={true}><i>icon</i> Solo travellers</SpanWrapper>
+          <SpanWrapper background={true}><FontAwesomeIcon icon={faUser} /> Solo travellers</SpanWrapper>
         </>
       ) : null}
-      <Tags tags={tags} wrapperComponent={SpanWrapper}/> 
+    <Tags tags={tags} wrapperComponent={SpanWrapper}/> 
     </InfoWrapper>
   );
 };

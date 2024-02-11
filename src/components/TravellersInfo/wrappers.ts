@@ -21,4 +21,5 @@ export const InfoWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  gap: 5px;
 `

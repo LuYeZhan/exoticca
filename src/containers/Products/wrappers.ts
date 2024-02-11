@@ -19,7 +19,8 @@ export const CardImage = styled.img`
   float: left;
   object-fit: cover;
   height: 100%;
-  border-radius: 1em;
+  border-top-left-radius: 1em;
+  border-bottom-left-radius: 1em;
 `;
 
 export const CardContent = styled.div`

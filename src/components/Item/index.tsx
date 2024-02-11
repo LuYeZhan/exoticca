@@ -1,8 +1,9 @@
 import { MultiMarketItem } from "../../types/product.types";
 import Highlights from "../Highlights";
+import Prices from "../Prices";
 import TravelServices from "../TravelServices";
 import TravellerInfo from "../TravellersInfo";
-import { ContentWrapper, InfoWrapper, ItemWrapper, PriceWrapper } from "./wrappers";
+import { ContentWrapper, InfoWrapper, ItemWrapper } from "./wrappers";
 
 const Item = (item: MultiMarketItem) => {
 
@@ -21,13 +22,12 @@ const Item = (item: MultiMarketItem) => {
         tags={item.tags}
         />
       </InfoWrapper>
-      <PriceWrapper>
-        <span>-{item.priceDetail.pricingPercentage} %</span>
-        <p>{item.priceDetail.oldPriceBeautify}</p>
-        <p>{item.priceDetail.fromPriceBeautify}</p>
-        <p>Per night: {item.priceDetail.pricePerNight}</p>
-        <button>See trip</button>
-      </PriceWrapper>
+      <Prices
+        pricingPercentage={item.priceDetail.pricingPercentage}
+        oldPriceBeautify={item.priceDetail.oldPriceBeautify}
+        fromPriceBeautify={item.priceDetail.fromPriceBeautify}
+        pricePerNight={item.priceDetail.pricePerNight}
+      />
     </ItemWrapper>
   );
 };
