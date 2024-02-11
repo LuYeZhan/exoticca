@@ -2,6 +2,8 @@ import React, { useState, ChangeEvent, KeyboardEvent, useRef } from 'react';
 import { SearchInputProps } from '../../types/searchInput.types';
 import { CustomInputWrapper, SearchWrapper, StyledInput } from './wrappers';
 import Button from '../Button';
+import { ButtonConstant } from '../../constants/button';
+import { Label } from '../../constants/labels';
 
 const SearchInput: React.FC<SearchInputProps> = ({ onSearch }) => {
   const [searchInput, setSearchInput] = useState("");
@@ -25,13 +27,13 @@ const SearchInput: React.FC<SearchInputProps> = ({ onSearch }) => {
     <SearchWrapper>
       <CustomInputWrapper>
         <StyledInput
-          placeholder='Search your next destination'
+          placeholder={Label.input}
           type="text"
           value={searchInput}
           onChange={handleChange}
           onKeyDown={handleKeyDown}
         />
-        <Button ref={buttonRef} onClick={handleSearch} padding='0.25em 0.5em' margin='0 0.5em 0 0' label='Search' />
+        <Button ref={buttonRef} onClick={handleSearch} padding={ButtonConstant.inputPadding} margin={ButtonConstant.inputMargin} label={ButtonConstant.secondary} />
       </CustomInputWrapper>
     </SearchWrapper>
   );

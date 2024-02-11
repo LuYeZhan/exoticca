@@ -1,3 +1,4 @@
+import { Label } from "../../constants/labels";
 import { PricesProps } from "../../types/prices.types";
 import { Container, DiscountedPriceWrapper, OldPrice, PriceWrapper, PricingPercentageWrapper, SmallPriceContainer, SmallPriceWrapper } from "./wrappers";
 
@@ -7,9 +8,9 @@ const MobilePrices = ({ pricingPercentage, oldPriceBeautify, fromPriceBeautify, 
       <PriceWrapper>
         <PricingPercentageWrapper>-{pricingPercentage} %</PricingPercentageWrapper>
         <SmallPriceContainer>
-          <SmallPriceWrapper>From: <OldPrice>{oldPriceBeautify}</OldPrice></SmallPriceWrapper>      
+          <SmallPriceWrapper>{Label.price1} <OldPrice>{oldPriceBeautify}</OldPrice></SmallPriceWrapper>      
           <DiscountedPriceWrapper>{fromPriceBeautify}</DiscountedPriceWrapper>
-          <SmallPriceWrapper>Per night: {pricePerNight}</SmallPriceWrapper>
+          <SmallPriceWrapper>{Label.price2} {pricePerNight}</SmallPriceWrapper>
         </SmallPriceContainer>
       </PriceWrapper>
     </Container>

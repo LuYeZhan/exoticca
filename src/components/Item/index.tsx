@@ -7,6 +7,8 @@ import TravellerInfo from "../TravellersInfo";
 import { ContentWrapper, InfoWrapper, ItemWrapper, ParagraphWrapper, TitleWrapper } from "./wrappers";
 import MobilePrices from "../MobilePrices";
 import Button from "../Button";
+import { ButtonConstant } from "../../constants/button";
+import { Label } from "../../constants/labels";
 
 const Item = (item: MultiMarketItem) => {
 
@@ -36,7 +38,7 @@ const Item = (item: MultiMarketItem) => {
         pricePerNight={item.priceDetail.pricePerNight}
         /> 
       )}
-        <ParagraphWrapper>{item.destination} in {item.days} days +</ParagraphWrapper>
+        <ParagraphWrapper>{item.destination} {Label.item1} {item.days} {Label.item2}</ParagraphWrapper>
         <TitleWrapper>{item.title}</TitleWrapper>
         <ContentWrapper>
           <Highlights highlights={item.highlights} />
@@ -57,7 +59,7 @@ const Item = (item: MultiMarketItem) => {
         />
       )}
       {!isDesktop && (
-        <Button label='See trip' padding='1.5em' margin='1em 0 0 0'/> 
+        <Button label={ButtonConstant.primary} padding={ButtonConstant.padding} margin={ButtonConstant.margin}/> 
       )}
     </ItemWrapper>
   );

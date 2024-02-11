@@ -4,4 +4,6 @@ export interface ButtonProps {
   padding?: string;
   borderRadius?: string;
   margin?: string;
+  label?: string;
+  onClick?: () => void;
 }

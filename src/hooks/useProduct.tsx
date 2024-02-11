@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { getData } from ".";
+import { getData } from "../api";
 import { Country } from "../types/product.types";
 
 export const useProduct = (searchQuery:string) =>

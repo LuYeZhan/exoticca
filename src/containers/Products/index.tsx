@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { Container, Card, CardImage, Title, SubTitleWrapper } from './wrappers';
 import SearchInput from '../../components/SearchInput';
-import { useProduct } from '../../api/useProduct';
+import { useProduct } from '../../hooks/useProduct';
 import Item from '../../components/Item';
 import { MultiMarketItem } from '../../types/product.types';
+import { Label } from '../../constants/labels';
 
 const Products = () => {
   const [searchQuery, setSearchQuery] = useState("botswana");
@@ -14,18 +15,18 @@ const Products = () => {
   };
 
   if (isLoading) {
-    return <p>Loading...</p>;
+    return <p>{Label.errorLoadingMessage}</p>;
   }
 
   if (isError) {
-    return <p>Error loading products</p>;
+    return <p>{Label.errorLoadingProducts}</p>;
   }
 
   return (
     <>
       <SearchInput onSearch={handleSearch} />
       <Container>
-        <Title>Our recommendation to visit {data?.name} and neighboring countries</Title>
+        <Title>{Label.productsTitle1} {data?.name} {Label.productsTitle2}</Title>
         <Card>
           <CardImage src={data?.hero.images.desktop} alt={data?.name} />
             {data?.destinations.featuredMultiMarket.map((item:MultiMarketItem) => (
@@ -33,7 +34,7 @@ const Products = () => {
             ))}
         </Card>
         <SubTitleWrapper>
-          <Title>Multi country vacation packages including {data?.name}</Title>
+          <Title>{Label.productsTitle3} {data?.name}</Title>
         </SubTitleWrapper>
         {data?.destinations.multiMarket.map((item:MultiMarketItem) => {
           return (

@@ -21,9 +21,9 @@ export const Card = styled.div`
   display: flex;
   height: auto;
   flex-direction: column;
+  margin: 1em 0;
   @media ${Desktop} {
     flex-direction: row;
-    margin: 10px;
   }
 `;
 

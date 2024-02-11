@@ -1,12 +1,6 @@
 import React, { forwardRef } from 'react';
 import { ButtonWrapper } from "./wrappers";
-
-interface ButtonProps {
-  label: string;
-  onClick?: () => void;
-  padding?: string;
-  margin?: string;
-}
+import { ButtonProps } from '../../types/button.types';
 
 const Button: React.ForwardRefRenderFunction<HTMLButtonElement, ButtonProps> = ({ label, onClick, padding, margin }, ref) => {
   return (

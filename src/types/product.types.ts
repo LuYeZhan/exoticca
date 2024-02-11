@@ -87,12 +87,15 @@ export type Tag = {
   tagId: string;
 };
 
+export type HighlightsType = { title: string; url: string };
+
+
 export type MultiMarketItem = {
   id: number;
   title: string;
   destination: string;
   images: { desktop: string; tablet: string; mobile: string }[];
-  productAnimation: any; // Assuming the type of productAnimation
+  productAnimation: any;
   days: number;
   url: string;
   map: {
@@ -105,7 +108,7 @@ export type MultiMarketItem = {
       horizontalSmall: string;
     };
   };
-  highlights: { title: string; url: string }[];
+  highlights: HighlightsType[];
   includes: string[];
   priceDetail: {
     fromPrice: number;

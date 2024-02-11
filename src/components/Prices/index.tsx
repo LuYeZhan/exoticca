@@ -1,3 +1,5 @@
+import { ButtonConstant } from "../../constants/button";
+import { Label } from "../../constants/labels";
 import { PricesProps } from "../../types/prices.types";
 import Button from "../Button";
 import { Container, DiscountedPriceWrapper, OldPrice, PriceWrapper, PricingPercentageWrapper, SmallPriceWrapper } from "./wrappers";
@@ -7,11 +9,11 @@ const Prices = ({ pricingPercentage, oldPriceBeautify, fromPriceBeautify, priceP
     <Container>
       <PriceWrapper>
         <PricingPercentageWrapper>-{pricingPercentage} %</PricingPercentageWrapper>
-        <SmallPriceWrapper>From: <OldPrice>{oldPriceBeautify}</OldPrice></SmallPriceWrapper>      
+        <SmallPriceWrapper>{Label.price1} <OldPrice>{oldPriceBeautify}</OldPrice></SmallPriceWrapper>      
         <DiscountedPriceWrapper>{fromPriceBeautify}</DiscountedPriceWrapper>
-        <SmallPriceWrapper>Per night: {pricePerNight}</SmallPriceWrapper>
+        <SmallPriceWrapper>{Label.price2} {pricePerNight}</SmallPriceWrapper>
       </PriceWrapper>
-      <Button label='See trip' />
+      <Button label={ButtonConstant.primary} />
     </Container>
   );
 };
