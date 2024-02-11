@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Desktop } from "../../constants/devices";
 
 export const StyledInput = styled.input`
   margin: 1em;
@@ -12,6 +13,10 @@ export const StyledInput = styled.input`
 export const CustomInputWrapper = styled.div`
   background-color: white;
   border-radius: 50px;
+  display: none;
+  @media ${Desktop} {
+    display: block;
+  }
 `
 
 export const SearchWrapper = styled.div`

@@ -1,17 +1,43 @@
+import { useEffect, useState } from "react";
 import { MultiMarketItem } from "../../types/product.types";
 import Highlights from "../Highlights";
 import Prices from "../Prices";
 import TravelServices from "../TravelServices";
 import TravellerInfo from "../TravellersInfo";
-import { ContentWrapper, InfoWrapper, ItemWrapper } from "./wrappers";
+import { ContentWrapper, InfoWrapper, ItemWrapper, ParagraphWrapper, TitleWrapper } from "./wrappers";
+import MobilePrices from "../MobilePrices";
+import Button from "../Button";
 
 const Item = (item: MultiMarketItem) => {
+
+  const [isDesktop, setIsDesktop] = useState<boolean>(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsDesktop(window.innerWidth >= 1024);
+    };
+
+    handleResize(); 
+    window.addEventListener('resize', handleResize); 
+
+    return () => {
+      window.removeEventListener('resize', handleResize); 
+    };
+  }, [isDesktop]);
 
   return (
     <ItemWrapper>
       <InfoWrapper>
-        <p>{item.destination} in {item.days} days</p>
-        <h4>{item.title}</h4>
+      {!isDesktop && (
+        <MobilePrices  
+        pricingPercentage={item.priceDetail.pricingPercentage}
+        oldPriceBeautify={item.priceDetail.oldPriceBeautify}
+        fromPriceBeautify={item.priceDetail.fromPriceBeautify}
+        pricePerNight={item.priceDetail.pricePerNight}
+        /> 
+      )}
+        <ParagraphWrapper>{item.destination} in {item.days} days</ParagraphWrapper>
+        <TitleWrapper>{item.title}</TitleWrapper>
         <ContentWrapper>
           <Highlights highlights={item.highlights} />
           <TravelServices services={item.includes} />
@@ -22,12 +48,17 @@ const Item = (item: MultiMarketItem) => {
         tags={item.tags}
         />
       </InfoWrapper>
-      <Prices
-        pricingPercentage={item.priceDetail.pricingPercentage}
-        oldPriceBeautify={item.priceDetail.oldPriceBeautify}
-        fromPriceBeautify={item.priceDetail.fromPriceBeautify}
-        pricePerNight={item.priceDetail.pricePerNight}
-      />
+      {isDesktop && (
+        <Prices
+          pricingPercentage={item.priceDetail.pricingPercentage}
+          oldPriceBeautify={item.priceDetail.oldPriceBeautify}
+          fromPriceBeautify={item.priceDetail.fromPriceBeautify}
+          pricePerNight={item.priceDetail.pricePerNight}
+        />
+      )}
+      {!isDesktop && (
+        <Button label='See trip' padding='1.5em' margin='1em 0 0 0'/> 
+      )}
     </ItemWrapper>
   );
 };

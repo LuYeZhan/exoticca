@@ -1,9 +1,12 @@
 import styled from "styled-components"
+import { Desktop } from "../../constants/devices"
 
 export const ServicesWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  padding-left: 2em;
+  @media ${Desktop} {
+    padding-left: 2em;
+  }
 `
 
 export const TextWrapper = styled.p`
@@ -11,5 +14,8 @@ export const TextWrapper = styled.p`
 `
 
 export const ContainerWrapper = styled.div`
-  display: flex;
+  display: none;
+  @media ${Desktop} {
+    display: flex;
+  }
 `

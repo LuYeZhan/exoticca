@@ -5,9 +5,11 @@ const applyStyles = (props: ButtonProps): CSSProperties => {
   return {
     color: props.color || "white",
     backgroundColor: props.backgroundColor || "black",
-    padding: props.padding || "1em",
+    padding: props.padding || "0.25em 1.5em",
     borderRadius: props.borderRadius || "100px",
     margin: props.margin || "0",
+    alignSelf: 'center',
+    fontSize: '1em'
   };
 };
 

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Container, Card, CardContent, CardImage } from './wrappers';
+import { Container, Card, CardImage, Title, SubTitleWrapper } from './wrappers';
 import SearchInput from '../../components/SearchInput';
 import { useProduct } from '../../api/useProduct';
 import Item from '../../components/Item';
@@ -21,29 +21,25 @@ const Products = () => {
     return <p>Error loading products</p>;
   }
 
-  console.log(data);
-
   return (
     <>
       <SearchInput onSearch={handleSearch} />
       <Container>
-        <h2>Our recommendation to visit {data?.name} and neighboring countries</h2>
+        <Title>Our recommendation to visit {data?.name} and neighboring countries</Title>
         <Card>
           <CardImage src={data?.hero.images.desktop} alt={data?.name} />
-          <CardContent>
             {data?.destinations.featuredMultiMarket.map((item:MultiMarketItem) => (
               <Item key={item.id} {...item} />
             ))}
-          </CardContent>
         </Card>
-        <h2>Multi country vacation packages including {data?.name}</h2>
+        <SubTitleWrapper>
+          <Title>Multi country vacation packages including {data?.name}</Title>
+        </SubTitleWrapper>
         {data?.destinations.multiMarket.map((item:MultiMarketItem) => {
           return (
             <Card>
               <CardImage src={item.images[0].desktop} alt={data?.name} />
-              <CardContent>
                 <Item key={item.id} {...item} />
-              </CardContent>
             </Card>
             )}
         )}

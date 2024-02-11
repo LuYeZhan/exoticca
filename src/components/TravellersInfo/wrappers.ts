@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import { Desktop } from "../../constants/devices";
 
 interface SpanWrapperProps {
   background?: boolean;
@@ -20,6 +21,10 @@ export const SpanWrapper = styled.span<SpanWrapperProps>`
 export const InfoWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
   gap: 5px;
+  @media ${Desktop} {
+    width: 100%;
+    padding: 0;
+    justify-content: space-between;
+  }
 `
