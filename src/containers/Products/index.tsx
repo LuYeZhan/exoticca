@@ -1,17 +1,23 @@
-import { useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 import { Container, Card, CardImage, Title, SubTitleWrapper } from './wrappers';
 import SearchInput from '../../components/SearchInput';
 import { useProduct } from '../../hooks/useProduct';
 import Item from '../../components/Item';
 import { MultiMarketItem } from '../../types/product.types';
 import { Label } from '../../constants/labels';
+import FilteredProducts from '../../components/FilteredProducts';
 
 const Products = () => {
   const [searchQuery, setSearchQuery] = useState("botswana");
   const { data, isLoading, isError } = useProduct(searchQuery);
+  const [filter, setFilter] = useState('');
 
   const handleSearch = (input: string) => {
     setSearchQuery(input);
+  };
+
+  const handleFilter = (event: ChangeEvent<HTMLInputElement>) => {
+    setFilter(event.target.value);
   };
 
   if (isLoading) {
@@ -21,6 +27,15 @@ const Products = () => {
   if (isError) {
     return <p>{Label.errorLoadingProducts}</p>;
   }
+
+  const allData = [
+    ...(data?.destinations?.featuredMultiMarket ?? []),
+    ...(data?.destinations?.multiMarket ?? [])
+  ];
+
+  const filteredData = allData.filter((item: MultiMarketItem) =>
+  JSON.stringify(item).toLowerCase().includes(filter.toLowerCase())
+);
 
   return (
     <>
@@ -44,6 +59,7 @@ const Products = () => {
             </Card>
             )}
         )}
+        <FilteredProducts filteredData={filteredData} handleFilter={handleFilter} data={data} />
       </Container>
     </>
   );

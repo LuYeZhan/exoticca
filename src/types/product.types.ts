@@ -150,9 +150,9 @@ export type MultiMarketItem = {
 
 export type Destinations = {
   featuredMonoMarket: [],
-  featuredMultiMarket: [MultiMarketItem],
+  featuredMultiMarket: [MultiMarketItem] | [],
   monoMarket: [],
-  multiMarket: [MultiMarketItem]
+  multiMarket: [MultiMarketItem] | []
 }
 
 export type Metadata = {

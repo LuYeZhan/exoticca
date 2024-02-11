@@ -11,5 +11,7 @@ export const Label = {
   errorLoadingProducts: 'Error loading products',
   productsTitle1: 'Our recommendation to visit',
   productsTitle2: 'and neighboring countries',
-  productsTitle3: 'Multi country vacation packages including '
+  productsTitle3: 'Multi country vacation packages including ',
+  filteredProducts1: 'Filtered Data',
+  filteredProductsErrorMessage: `There's no match at the moment, try with another word.`
 }
