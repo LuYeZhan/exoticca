@@ -36,7 +36,7 @@ const Item = (item: MultiMarketItem) => {
         pricePerNight={item.priceDetail.pricePerNight}
         /> 
       )}
-        <ParagraphWrapper>{item.destination} in {item.days} days</ParagraphWrapper>
+        <ParagraphWrapper>{item.destination} in {item.days} days +</ParagraphWrapper>
         <TitleWrapper>{item.title}</TitleWrapper>
         <ContentWrapper>
           <Highlights highlights={item.highlights} />

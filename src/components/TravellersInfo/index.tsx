@@ -5,6 +5,7 @@ import Tags from "../Tags";
 import { Tag } from "../../types/product.types";
 
 const TravellerInfo = ({ hasSoloTraveller, hasPrivateTour, tags }: { hasSoloTraveller: boolean; hasPrivateTour: boolean; tags: Tag[] }) => {
+  console.log(tags)
   return (
     <InfoWrapper>
       {!hasPrivateTour ? <SpanWrapper background={true}>Group Tours</SpanWrapper> : null}
