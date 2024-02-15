@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 import { Desktop } from "../../constants/devices";
 
 interface SpanWrapperProps {
-  background?: boolean;
+  $background?: boolean;
 }
 
 export const SpanWrapper = styled.span<SpanWrapperProps>`
@@ -11,7 +11,7 @@ export const SpanWrapper = styled.span<SpanWrapperProps>`
   border: 1px solid rgb(202, 202, 202);
 
   ${(props) =>
-    !props.background &&
+    !props.$background &&
     css`
       background: rgb(229, 229, 229);
       border: 1px solid lightgrey;

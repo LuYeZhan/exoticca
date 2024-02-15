@@ -53,9 +53,9 @@ const Products = () => {
         </SubTitleWrapper>
         {data?.destinations.multiMarket.map((item:MultiMarketItem) => {
           return (
-            <Card>
+            <Card key={item.id} >
               <CardImage src={item.images[0].desktop} alt={data?.name} />
-                <Item key={item.id} {...item} />
+                <Item {...item} />
             </Card>
             )}
         )}
